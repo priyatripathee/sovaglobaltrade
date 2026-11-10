@@ -1,330 +1,1458 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-      rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
-      rel="stylesheet" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOVA Global Trade | Connecting Indian Products to Global Markets</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cinzel & Playfair Display for majestic export branding, Plus Jakarta Sans for ultra-clean UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css" />
-    <title>Sovaglobaltrade</title>
-  </head>
-  <body>
-    <nav>
-      <div class="nav__header">
-        <div class="nav__logo">
-          <a href="#" class="logo">BusTraveller </a>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#07162c',
+              dark: '#030d1c',
+              navyLight: '#0d2545',
+              gold: '#d4a359',
+              goldHover: '#c59247',
+              goldLight: '#f6ecdc',
+              goldBorder: '#edd5af',
+              bgLight: '#faf7f2',
+              cream: '#fdfbf7',
+              accentRed: '#bf2c2c'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom aesthetic enhancements */
+    .hero-gradient {
+      background: linear-gradient(90deg, rgba(5, 17, 35, 0.96) 0%, rgba(7, 22, 44, 0.88) 45%, rgba(13, 37, 69, 0.4) 100%);
+    }
+    .gold-shimmer {
+      background: linear-gradient(135deg, #f0ca7d 0%, #d4a359 50%, #ae7b29 100%);
+    }
+    .gold-badge-bg {
+      background: linear-gradient(135deg, #f7efe1 0%, #faedd8 100%);
+    }
+    /* Smooth page views */
+    .page-section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .page-section.active {
+      display: block;
+      opacity: 1;
+    }
+    /* Smooth card hover lift */
+    .hover-lift {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px -10px rgba(11, 25, 46, 0.12);
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-slate-800 antialiased selection:bg-brand-gold selection:text-brand-dark flex flex-col min-h-screen">
+
+  <!-- ================= TOP HEADER BAR ================= -->
+  <header class="bg-[#051123] text-slate-300 text-xs border-b border-slate-800/80 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-9">
+        
+        <!-- Left: Taglines & Origin -->
+        <div class="flex items-center space-x-6 text-[11px] sm:text-xs">
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-earth-americas text-brand-gold"></i>
+            <span class="tracking-wide text-slate-200">Global Trade | Export from India</span>
+          </div>
+          <div class="hidden md:flex items-center space-x-2 pl-4 border-l border-slate-700">
+            <i class="fa-solid fa-handshake-simple text-brand-gold"></i>
+            <span class="text-slate-300">Connecting Indian Products to Global Markets</span>
+          </div>
         </div>
-        <div class="nav__menu__btn" id="menu-btn">
-          <i class="ri-menu-line"></i>
+
+        <!-- Right: Social Links & Contact Info -->
+        <div class="flex items-center space-x-4">
+          <div class="hidden lg:flex items-center space-x-2 text-slate-400 mr-2">
+            <i class="fa-regular fa-envelope text-brand-gold"></i>
+            <a href="mailto:sales@sovaglobaltrade.com" class="hover:text-brand-gold transition-colors">sales@sovaglobaltrade.com</a>
+          </div>
+          <div class="flex items-center space-x-3 text-slate-300">
+            <a href="#" aria-label="LinkedIn" class="w-6 h-6 rounded-full bg-slate-800/80 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all"><i class="fa-brands fa-linkedin-in text-[11px]"></i></a>
+            <a href="#" aria-label="Facebook" class="w-6 h-6 rounded-full bg-slate-800/80 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all"><i class="fa-brands fa-facebook-f text-[11px]"></i></a>
+            <a href="#" aria-label="Instagram" class="w-6 h-6 rounded-full bg-slate-800/80 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all"><i class="fa-brands fa-instagram text-[11px]"></i></a>
+            <a href="#" aria-label="YouTube" class="w-6 h-6 rounded-full bg-slate-800/80 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition-all"><i class="fa-brands fa-youtube text-[11px]"></i></a>
+          </div>
         </div>
+
       </div>
-      <ul class="nav__links" id="nav-links">
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#tour">TOUR</a></li>
-        <li><a href="#package">PACKAGE</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-        <li><a href="#">BOOK TRIP</a></li>
-      </ul>
-      <div class="nav__btns">
-        <button class="btn">BOOK TRIP</button>
-      </div>
-    </nav>
+    </div>
+  </header>
 
-    <header id="home">
-      <div class="header__container">
-        <div class="header__content">
-          <p>BUS YOUR TREVEL JOURNEY</p>
-          <h1>Where Every Bus Ride Feels Magical!</h1>
-          <div class="header__btns">
-            <button class="btn">Book A Trip Now</button>
-            <a href="#">
-              <span><i class="ri-play-circle-fill"></i></span>
-            </a>
+  <!-- ================= MAIN NAVIGATION ================= -->
+  <nav class="bg-white border-b border-slate-200 shadow-sm sticky top-9 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo exactly matching screenshot logo style -->
+        <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center gap-3 group">
+          <!-- Stylized S Golden Emblem -->
+          <div class="relative w-11 h-11 rounded-full bg-gradient-to-br from-brand-navy to-slate-900 border-2 border-brand-gold/70 flex items-center justify-center shadow-md shadow-brand-navy/10 overflow-hidden">
+            <svg class="w-7 h-7 text-brand-gold transform group-hover:scale-105 transition-transform" viewBox="0 0 100 100" fill="currentColor">
+              <!-- Elegant double swirl S monogram -->
+              <path d="M50 8C26.8 8 8 26.8 8 50c0 9.8 3.4 18.8 9.1 26L31 62c-2.5-3.6-4-8-4-12.8 0-12.7 10.3-23 23-23s23 10.3 23 23c0 7.2-3.3 13.6-8.5 17.8L76 80.5C85.8 72.8 92 62.1 92 50 92 26.8 73.2 8 50 8z" fill="#D4A359" opacity="0.95"/>
+              <path d="M50 92c23.2 0 42-18.8 42-42 0-9.8-3.4-18.8-9.1-26L69 38c2.5 3.6 4 8 4 12.8 0 12.7-10.3 23-23 23s-23-10.3-23-23c0-7.2 3.3-13.6 8.5-17.8L24 19.5C14.2 27.2 8 37.9 8 50c0 23.2 18.8 42 42 42z" fill="#BF8D39"/>
+            </svg>
           </div>
-        </div>
-        <div class="header__image">
-          <img src="img/bus.png" alt="header" />
-        </div>
-      </div>
-    </header>
-
-    <section class="section__container destination__container" id="about">
-      <h2 class="section__header">Popular Destination</h2>
-      <p class="section__description">
-        Discover the Most Loved Destination Around the Globe
-      </p>
-      <div class="destination__grid">
-        <div class="destination__card">
-          <img src="img/card.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Sacred Calm at Badrinath Temple.</h4>
-              <p>Badrinath, Uttarakhand, India</p>
+          <div class="flex flex-col">
+            <div class="flex items-baseline space-x-1">
+              <span class="font-cinzel text-2xl font-bold tracking-wider text-brand-navy leading-none">SOVA</span>
             </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.7
+            <div class="flex items-center justify-between w-full mt-0.5">
+              <span class="h-[1px] w-3 bg-brand-gold inline-block"></span>
+              <span class="text-[9px] font-semibold tracking-[0.28em] text-brand-gold uppercase">GLOBAL TRADE</span>
+              <span class="h-[1px] w-3 bg-brand-gold inline-block"></span>
             </div>
           </div>
-        </div>
-        <div class="destination__card">
-          <img src="img/card2.jpg" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Divine Majesty at Jagannath Temple.</h4>
-              <p>Puri, Odisha, India</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.8
-            </div>
-          </div>
-        </div>
-        <div class="destination__card">
-          <img src="img/card3.webp" alt="destination" />
-          <div class="destination__card__details">
-            <div>
-              <h4>Spiritual Serenity at Neem Karoli Temple.</h4>
-              <p>Dehradun, India</p>
-            </div>
-            <div class="destination__ratings">
-              <span><i class="ri-star-fill"></i></span>
-              4.5
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </a>
 
-    <section class="section__container journey__container" id="tour">
-      <h2 class="section__header">Bus Travel, the Easy Way!</h2>
-      <p class="section__description">
-        Effortless planning for Your Next Adventure
-      </p>
-      <div class="journey__grid">
-        <div class="journey__card">
-          <div class="journey__card__bg">
-            <span><i class="ri-bookmark-3-line"></i></span>
-            <h4>Seamless Booking Process</h4>
-          </div>
-          <div class="journey__card__content">
-            <span><i class="ri-bookmark-3-line"></i></span>
-            <h4>Seat Booking, one Click Away</h4>
-            <p>
-              From booking tickets to tracking your bus in real-time, everything
-              is just a click away. No more long queues or last-minute confusion
-              — plan, book, and board with complete ease. Your journey,
-              simplified.
-            </p>
-          </div>
-        </div>
+        <!-- Desktop Navigation Items -->
+        <div class="hidden lg:flex items-center space-x-1 text-[14px] font-semibold text-slate-700">
+          <button onclick="navigateTo('home')" class="nav-link px-3.5 py-2 hover:text-brand-gold transition-colors relative" id="nav-home">
+            Home
+            <span class="nav-indicator absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-brand-gold rounded-full"></span>
+          </button>
+          <button onclick="navigateTo('about')" class="nav-link px-3.5 py-2 hover:text-brand-gold transition-colors relative" id="nav-about">
+            About Us
+            <span class="nav-indicator hidden absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-brand-gold rounded-full"></span>
+          </button>
 
-        <div class="journey__card">
-          <div class="journey__card__bg">
-            <span><i class="ri-landscape-fill"></i></span>
-            <h4>Tailored Itineraries</h4>
+          <!-- Products with Dropdown -->
+          <div class="relative group">
+            <button onclick="navigateTo('products')" class="nav-link flex items-center px-3.5 py-2 hover:text-brand-gold transition-colors relative" id="nav-products">
+              <span>Products</span>
+              <i class="fa-solid fa-chevron-down text-[10px] ml-1.5 transition-transform group-hover:rotate-180"></i>
+              <span class="nav-indicator hidden absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-brand-gold rounded-full"></span>
+            </button>
+            <div class="absolute left-0 top-full pt-2 w-64 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+              <div class="bg-white rounded-xl shadow-xl border border-slate-100 p-2 text-xs">
+                <a href="javascript:void(0)" onclick="filterAndNavigate('Rice')" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-brand-goldLight hover:text-brand-navy text-slate-700 font-medium transition-colors">
+                  <i class="fa-solid fa-wheat-awn text-brand-gold w-5"></i> Rice (Basmati & Non-Basmati)
+                </a>
+                <a href="javascript:void(0)" onclick="filterAndNavigate('Dal & Pulses')" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-brand-goldLight hover:text-brand-navy text-slate-700 font-medium transition-colors">
+                  <i class="fa-solid fa-seedling text-brand-gold w-5"></i> Dal & Pulses
+                </a>
+                <a href="javascript:void(0)" onclick="filterAndNavigate('Spices')" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-brand-goldLight hover:text-brand-navy text-slate-700 font-medium transition-colors">
+                  <i class="fa-solid fa-mortar-pestle text-brand-gold w-5"></i> Spices & Food Products
+                </a>
+                <a href="javascript:void(0)" onclick="filterAndNavigate('Kitchenware')" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-brand-goldLight hover:text-brand-navy text-slate-700 font-medium transition-colors">
+                  <i class="fa-solid fa-utensils text-brand-gold w-5"></i> Kitchen Products & Utensils
+                </a>
+                <a href="javascript:void(0)" onclick="filterAndNavigate('Handicrafts')" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-brand-goldLight hover:text-brand-navy text-slate-700 font-medium transition-colors">
+                  <i class="fa-solid fa-monument text-brand-gold w-5"></i> Handicrafts & Home Decor
+                </a>
+                <a href="javascript:void(0)" onclick="filterAndNavigate('Handloom')" class="flex items-center px-3 py-2.5 rounded-lg hover:bg-brand-goldLight hover:text-brand-navy text-slate-700 font-medium transition-colors">
+                  <i class="fa-solid fa-rug text-brand-gold w-5"></i> Handloom Products
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="journey__card__content">
-            <span><i class="ri-landscape-fill"></i></span>
-            <h4>Customized Plans Just for You</h4>
-            <p>
-              Everyone travels differently — that’s why we create plans just for
-              you. From preferred timings to budget-friendly options and seat
-              choices, enjoy a trip designed around your lifestyle.
-            </p>
-          </div>
-        </div>
 
-        <div class="journey__card">
-          <div class="journey__card__bg">
-            <span><i class="ri-map-2-line"></i></span>
-            <h4>Expert Local Insights</h4>
-          </div>
-          <div class="journey__card__content">
-            <span><i class="ri-map-2-line"></i></span>
-            <h4>Insider Tips and Recommendations</h4>
-            <p>
-              From the best boarding points to local travel hacks, our insights
-              are powered by real people who know the roads. It’s local
-              knowledge, delivered straight to your screen.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section__container showcase__container" id="package">
-      <div class="showcase__image">
-        <img src="img/showcase.webp" alt="showcase" />
-      </div>
-      <div class="showcase__content">
-        <h4>Ignite Your Wanderlust with Every Bus Ride</h4>
-        <p>
-          Traveling by bus offers comfort and stunning views on your way to
-          amazing destinations. With spacious seats and air conditioning, you
-          can relax and enjoy the ride, whether you're heading to a vibrant city
-          or a peaceful getaway. It’s the perfect way to travel affordably and
-          conveniently while experiencing the beauty of the journey.
-        </p>
-        <p>
-          Explore the World by Bus with Ease Hop on a bus and experience the joy
-          of travel at your own pace. From comfortable seating to scenic routes,
-          our buses offer the perfect way to explore cities, nature, and
-          everything in between. Whether it's a quick trip or a long adventure,
-          sit back, relax, and enjoy the ride.
-        </p>
-        <div class="showcase__btn">
-          <button class="btn">
-            BOOK A Bus Now
-            <span><i class="ri-arrow-right-line"></i></span>
+          <button onclick="navigateTo('why-us')" class="nav-link px-3.5 py-2 hover:text-brand-gold transition-colors relative" id="nav-why-us">
+            Why Choose Us
+            <span class="nav-indicator hidden absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-brand-gold rounded-full"></span>
+          </button>
+          <button onclick="navigateTo('gallery')" class="nav-link px-3.5 py-2 hover:text-brand-gold transition-colors relative" id="nav-gallery">
+            Gallery
+            <span class="nav-indicator hidden absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-brand-gold rounded-full"></span>
           </button>
         </div>
-      </div>
-    </section>
 
-    <section class="section__container banner__container">
-      <div class="banner__card">
-        <h4>10+</h4>
-        <p>Years Experience</p>
-      </div>
-      <div class="banner__card">
-        <h4>12k</h4>
-        <p>Happy Clients</p>
-      </div>
-      <div class="banner__card">
-        <h4>4.8</h4>
-        <p>Overrall Ratings</p>
-      </div>
-    </section>
+        <!-- Contact CTA Button -->
+        <div class="hidden lg:flex items-center">
+          <button onclick="navigateTo('contact')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-gold text-slate-900 font-semibold text-xs tracking-wide shadow-sm hover:bg-brand-goldHover hover:shadow-md transition-all duration-200">
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+            <span>Contact Us</span>
+          </button>
+        </div>
 
-    <section class="section__container discover__container">
-      <h2 class="section__header">
-        Discover Peace, Culture, and Devotion with Our Temple Bus Travels
-      </h2>
-      <p class="section__description">
-        Witness Stunning Landscapes from the Comfort of Your Bus Seat"
-      </p>
-      <div class="discover__grid">
-        <div class="discover__card">
-          <span><i class="ri-camera-lens-line"></i></span>
-          <h4>Your Road, Your Story</h4>
-          <p>
-            Experience the freedom of travel with our comfortable and reliable
-            bus trips. Enjoy stunning views along the way while relaxing in
-            spacious seats. Whether it's a short trip or a long journey, our
-            buses ensure a smooth and enjoyable ride.
-          </p>
+        <!-- Mobile Menu Trigger -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2.5 rounded-lg text-slate-700 hover:text-brand-navy hover:bg-slate-100 transition-colors">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
         </div>
-        <div class="discover__card">
-          <span><i class="ri-ship-line"></i></span>
-          <h4>Coastal Wonders</h4>
-          <p>
-            Embark on a journey through the mesmerizing coastal wonders. Enjoy
-            the serene beauty of pristine beaches, stunning cliffs, and
-            breathtaking ocean views, all from the comfort of our bus. Let the
-            coastal breeze guide you to unforgettable destinations.
-          </p>
-        </div>
-        <div class="discover__card">
-          <span><i class="ri-landscape-line"></i></span>
-          <h4>Historic Landmarks</h4>
-          <p>
-            Explore the charm of historic landmarks on our specially curated bus
-            tours. Our comfortable buses will take you through iconic sites,
-            offering insights into their fascinating stories. Sit back, relax,
-            and immerse yourself in the rich history that each destination
-            holds.
-          </p>
-        </div>
-      </div>
-    </section>
 
-    <footer id="contact">
-      <div class="section__container footer__container">
-        <div class="footer__col">
-          <div class="footer__logo">
-            <a href="#" class="logo">BusTraveller</a>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+      <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left py-2.5 px-3 rounded-lg font-medium text-slate-800 hover:bg-brand-goldLight hover:text-brand-navy">Home</button>
+      <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left py-2.5 px-3 rounded-lg font-medium text-slate-800 hover:bg-brand-goldLight hover:text-brand-navy">About Us</button>
+      <button onclick="navigateTo('products'); toggleMobileMenu()" class="block w-full text-left py-2.5 px-3 rounded-lg font-medium text-slate-800 hover:bg-brand-goldLight hover:text-brand-navy">All Products</button>
+      <button onclick="navigateTo('why-us'); toggleMobileMenu()" class="block w-full text-left py-2.5 px-3 rounded-lg font-medium text-slate-800 hover:bg-brand-goldLight hover:text-brand-navy">Why Choose Us</button>
+      <button onclick="navigateTo('gallery'); toggleMobileMenu()" class="block w-full text-left py-2.5 px-3 rounded-lg font-medium text-slate-800 hover:bg-brand-goldLight hover:text-brand-navy">Gallery</button>
+      <button onclick="navigateTo('contact'); toggleMobileMenu()" class="w-full text-center py-3 px-4 rounded-lg bg-brand-gold font-semibold text-slate-900 text-sm shadow mt-2">
+        <i class="fa-solid fa-paper-plane mr-2"></i> Contact Us
+      </button>
+    </div>
+  </nav>
+
+  <!-- ================= MAIN CONTENT WRAPPER ================= -->
+  <main class="flex-grow">
+
+    <!-- ============================================================== -->
+    <!-- VIEW 1: HOME PAGE (EXACT DESIGN MATCH)                        -->
+    <!-- ============================================================== -->
+    <div id="page-home" class="page-section active">
+      
+      <!-- HERO SECTION -->
+      <section class="relative bg-brand-navy overflow-hidden">
+        <!-- Background Container Ship / Cargo Port Image -->
+        <div class="absolute inset-0 z-0">
+          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=2000&q=80" 
+               alt="Global Cargo Ship and Shipping Port" 
+               class="w-full h-full object-cover object-center lg:object-right opacity-45 lg:opacity-55 scale-105"
+               onerror="this.src='https://placehold.co/1920x800/07162c/d4a359?text=Global+Trade+Cargo+Ship'">
+          <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div class="max-w-2xl lg:max-w-3xl">
+            
+            <!-- Top Tagline with decorative dash -->
+            <div class="flex items-center space-x-3 mb-4">
+              <span class="h-[2px] w-6 bg-brand-gold"></span>
+              <span class="text-xs sm:text-sm font-semibold tracking-widest uppercase text-brand-gold font-sans">WELCOME TO SOVA GLOBAL TRADE</span>
+              <span class="h-[2px] w-6 bg-brand-gold hidden sm:inline-block"></span>
+            </div>
+
+            <!-- Majestic Headline matching screenshot -->
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15] mb-6">
+              India's Finest Products <br class="hidden sm:inline" />
+              <span class="text-white">For Global Markets.</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-slate-200 text-base sm:text-lg leading-relaxed mb-8 max-w-xl font-normal">
+              Connecting India's quality products with opportunities across the world through trust, quality and commitment.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap items-center gap-4">
+              <button onclick="navigateTo('products')" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-brand-gold text-slate-900 font-semibold text-sm hover:bg-brand-goldHover shadow-lg hover:shadow-brand-gold/20 transition-all group">
+                <span>Explore Our Products</span>
+                <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+              </button>
+
+              <button onclick="openInquiryModal('General Export Inquiry')" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-transparent border border-slate-400/60 text-white font-medium text-sm hover:bg-white/10 hover:border-white transition-all">
+                <i class="fa-regular fa-envelope text-brand-gold"></i>
+                <span>Send an Inquiry</span>
+              </button>
+            </div>
+
           </div>
-          <p>
-            Explore the world with ease and excitement through our all-in-one
-            bus travel platform. Your journey begins here — where smooth
-            planning meets unforgettable road experiences.
-          </p>
-          <ul class="footer__socials">
-            <li>
-              <a href="#!"><i class="ri-facebook-fill"></i></a>
-            </li>
-            <li>
-              <a href="#!"><i class="ri-instagram-line"></i></a>
-            </li>
-            <li>
-              <a href="#!"><i class="ri-youtube-line"></i></a>
-            </li>
-          </ul>
         </div>
-        <div class="footer__col">
-          <h4>Quick Links</h4>
-          <ul class="footer__links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Bus</a></li>
-            <li><a href="#">Hotels</a></li>
-            <li><a href="#">Cruise</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Contact Us</h4>
-          <ul class="footer__links">
-            <li>
-              <a href="#">
-                <span><i class="ri-phone-fill"></i></span>+91 12345 67890
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span><i class="ri-record-mail-line"></i></span>
-                info@BusTraveller
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span><i class="ri-map-pin-2-fill"></i></span> Agra, India
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Subscribe</h4>
-          <form action="#!">
-            <input type="text" placeholder="Enter your email" />
-            <button class="btn">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer__bar">
-        Copyright © 2025 Code Prashtt. All rights reserved.
-        <p>
-          Distributed by
-          <a
-            class="text-white"
-            href="https://www.themewagon.com"
-            target="_blank"
-            >ThemeWagon</a
-          >
-        </p>
-      </div>
-    </footer>
+      </section>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  </body>
+      <!-- 4-FEATURE TRUST STRIP -->
+      <section class="bg-brand-cream border-y border-brand-goldBorder/60 py-4 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 divide-y md:divide-y-0 md:divide-x divide-brand-goldBorder/60">
+            
+            <div class="flex items-center justify-center space-x-3 py-2 px-3 text-slate-800">
+              <span class="w-8 h-8 rounded-full bg-slate-900 text-brand-gold flex items-center justify-center text-xs shrink-0 shadow-sm">
+                <i class="fa-solid fa-check"></i>
+              </span>
+              <span class="text-xs sm:text-sm font-bold tracking-tight">Premium Quality</span>
+            </div>
+
+            <div class="flex items-center justify-center space-x-3 py-2 px-3 text-slate-800">
+              <span class="w-8 h-8 rounded-full bg-slate-900 text-brand-gold flex items-center justify-center text-xs shrink-0 shadow-sm">
+                <i class="fa-solid fa-handshake"></i>
+              </span>
+              <span class="text-xs sm:text-sm font-bold tracking-tight">Trusted Partnerships</span>
+            </div>
+
+            <div class="flex items-center justify-center space-x-3 py-2 px-3 text-slate-800">
+              <span class="w-8 h-8 rounded-full bg-slate-900 text-brand-gold flex items-center justify-center text-xs shrink-0 shadow-sm">
+                <i class="fa-solid fa-globe"></i>
+              </span>
+              <span class="text-xs sm:text-sm font-bold tracking-tight">Global Trade</span>
+            </div>
+
+            <div class="flex items-center justify-center space-x-3 py-2 px-3 text-slate-800">
+              <span class="w-8 h-8 rounded-full bg-slate-900 text-brand-gold flex items-center justify-center text-xs shrink-0 shadow-sm">
+                <i class="fa-solid fa-users"></i>
+              </span>
+              <span class="text-xs sm:text-sm font-bold tracking-tight">Customer Focus</span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS SHOWCASE (OUR COLLECTION) -->
+      <section class="py-14 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Section Heading -->
+          <div class="text-center max-w-xl mx-auto mb-10">
+            <div class="flex items-center justify-center space-x-2 mb-1.5">
+              <span class="h-[1px] w-6 bg-brand-gold"></span>
+              <span class="text-[11px] font-bold tracking-widest uppercase text-brand-gold">OUR COLLECTION</span>
+              <span class="h-[1px] w-6 bg-brand-gold"></span>
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy tracking-tight">
+              Explore Our Products
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-2">
+              Discover India's finest products for international markets.
+            </p>
+          </div>
+
+          <!-- 6 Products Grid (Exact Match to screenshot layout) -->
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+            
+            <!-- Card 1: Rice -->
+            <div class="bg-brand-cream rounded-xl border border-brand-goldBorder/70 overflow-hidden hover-lift flex flex-col justify-between group">
+              <div class="relative h-28 sm:h-32 overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=500&q=80" 
+                     alt="Basmati & Non-Basmati Rice" 
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/400x300/fdfbf7/07162c?text=Rice'">
+              </div>
+              <div class="p-3 text-center flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 class="text-xs sm:text-sm font-bold text-slate-800 mb-1">Rice</h3>
+                  <p class="text-[10px] text-slate-500 mb-2">Basmati & Non-Basmati</p>
+                </div>
+                <button onclick="openInquiryModal('Rice (Basmati & Non-Basmati)')" class="inline-flex items-center justify-center gap-1 text-[11px] font-semibold text-brand-navy hover:text-brand-gold transition-colors pt-1 border-t border-brand-goldBorder/50">
+                  <span>Enquire Now</span>
+                  <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 2: Dal & Pulses -->
+            <div class="bg-brand-cream rounded-xl border border-brand-goldBorder/70 overflow-hidden hover-lift flex flex-col justify-between group">
+              <div class="relative h-28 sm:h-32 overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=500&q=80" 
+                     alt="Dal and Indian Pulses" 
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/400x300/fdfbf7/07162c?text=Dal+Pulses'">
+              </div>
+              <div class="p-3 text-center flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 class="text-xs sm:text-sm font-bold text-slate-800 mb-1">Dal & Pulses</h3>
+                  <p class="text-[10px] text-slate-500 mb-2">Lentils, Chickpeas & Beans</p>
+                </div>
+                <button onclick="openInquiryModal('Dal & Pulses')" class="inline-flex items-center justify-center gap-1 text-[11px] font-semibold text-brand-navy hover:text-brand-gold transition-colors pt-1 border-t border-brand-goldBorder/50">
+                  <span>Enquire Now</span>
+                  <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 3: Spices & Food Products -->
+            <div class="bg-brand-cream rounded-xl border border-brand-goldBorder/70 overflow-hidden hover-lift flex flex-col justify-between group">
+              <div class="relative h-28 sm:h-32 overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=500&q=80" 
+                     alt="Indian Spices and Food Products" 
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/400x300/fdfbf7/07162c?text=Indian+Spices'">
+              </div>
+              <div class="p-3 text-center flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 class="text-xs sm:text-sm font-bold text-slate-800 mb-1">Spices & Food</h3>
+                  <p class="text-[10px] text-slate-500 mb-2">Pure Whole & Ground Spices</p>
+                </div>
+                <button onclick="openInquiryModal('Spices & Food Products')" class="inline-flex items-center justify-center gap-1 text-[11px] font-semibold text-brand-navy hover:text-brand-gold transition-colors pt-1 border-t border-brand-goldBorder/50">
+                  <span>Enquire Now</span>
+                  <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 4: Kitchen Products & Utensils -->
+            <div class="bg-brand-cream rounded-xl border border-brand-goldBorder/70 overflow-hidden hover-lift flex flex-col justify-between group">
+              <div class="relative h-28 sm:h-32 overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1584990347449-39bbf784a959?auto=format&fit=crop&w=500&q=80" 
+                     alt="Kitchenware Stainless Steel & Utensils" 
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/400x300/fdfbf7/07162c?text=Kitchen+Utensils'">
+              </div>
+              <div class="p-3 text-center flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 class="text-xs sm:text-sm font-bold text-slate-800 mb-1 leading-snug">Kitchen Products & Utensils</h3>
+                  <p class="text-[10px] text-slate-500 mb-2">Stainless Steel & Cookware</p>
+                </div>
+                <button onclick="openInquiryModal('Kitchen Products & Utensils')" class="inline-flex items-center justify-center gap-1 text-[11px] font-semibold text-brand-navy hover:text-brand-gold transition-colors pt-1 border-t border-brand-goldBorder/50">
+                  <span>Enquire Now</span>
+                  <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 5: Handicrafts & Home Decor -->
+            <div class="bg-brand-cream rounded-xl border border-brand-goldBorder/70 overflow-hidden hover-lift flex flex-col justify-between group">
+              <div class="relative h-28 sm:h-32 overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=500&q=80" 
+                     alt="Indian Handicrafts and Brass Lamp Decor" 
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/400x300/fdfbf7/07162c?text=Handicrafts'">
+              </div>
+              <div class="p-3 text-center flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 class="text-xs sm:text-sm font-bold text-slate-800 mb-1 leading-snug">Handicrafts & Decor</h3>
+                  <p class="text-[10px] text-slate-500 mb-2">Brass, Wood & Artistry</p>
+                </div>
+                <button onclick="openInquiryModal('Handicrafts & Home Decor')" class="inline-flex items-center justify-center gap-1 text-[11px] font-semibold text-brand-navy hover:text-brand-gold transition-colors pt-1 border-t border-brand-goldBorder/50">
+                  <span>Enquire Now</span>
+                  <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 6: Handloom Products -->
+            <div class="bg-brand-cream rounded-xl border border-brand-goldBorder/70 overflow-hidden hover-lift flex flex-col justify-between group">
+              <div class="relative h-28 sm:h-32 overflow-hidden bg-slate-100">
+                <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?auto=format&fit=crop&w=500&q=80" 
+                     alt="Indian Handloom Textiles & Silk" 
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/400x300/fdfbf7/07162c?text=Handloom+Textiles'">
+              </div>
+              <div class="p-3 text-center flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 class="text-xs sm:text-sm font-bold text-slate-800 mb-1">Handloom</h3>
+                  <p class="text-[10px] text-slate-500 mb-2">Fabrics, Shawls & Linens</p>
+                </div>
+                <button onclick="openInquiryModal('Handloom Products')" class="inline-flex items-center justify-center gap-1 text-[11px] font-semibold text-brand-navy hover:text-brand-gold transition-colors pt-1 border-t border-brand-goldBorder/50">
+                  <span>Enquire Now</span>
+                  <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom View All Button -->
+          <div class="text-center mt-8">
+            <button onclick="navigateTo('products')" class="inline-flex items-center space-x-2 text-xs font-bold text-brand-navy hover:text-brand-gold transition-colors uppercase tracking-wider">
+              <span>View Full Export Catalog</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ABOUT SOVA GLOBAL TRADE PREVIEW (MATCHING SCREENSHOT) -->
+      <section class="py-12 bg-brand-bgLight border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left: India Heritage & Tri-color Banner Image -->
+            <div class="lg:col-span-5 relative rounded-2xl overflow-hidden shadow-lg border-2 border-brand-goldBorder">
+              <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1000&q=80" 
+                   alt="Heritage India Monuments and Flag" 
+                   class="w-full h-64 sm:h-72 object-cover"
+                   onerror="this.src='https://placehold.co/800x500/0d2545/d4a359?text=India+Gate+Heritage'">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
+                <span class="text-xs font-semibold text-white tracking-wide flex items-center gap-2">
+                  <i class="fa-solid fa-location-dot text-brand-gold"></i> Sourced ethically across India's premier production belts
+                </span>
+              </div>
+            </div>
+
+            <!-- Right: About text block -->
+            <div class="lg:col-span-7">
+              <div class="flex items-center space-x-2 mb-2">
+                <span class="h-[2px] w-5 bg-brand-gold"></span>
+                <span class="text-xs font-bold tracking-widest uppercase text-brand-gold">ABOUT SOVA GLOBAL TRADE</span>
+              </div>
+              
+              <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-navy mb-4 tracking-tight">
+                Bringing the Best of India to the World
+              </h2>
+
+              <p class="text-slate-600 text-sm leading-relaxed mb-3">
+                <strong class="text-slate-900">Sova Global Trade</strong> is an India-based export business focused on connecting quality Indian products with international markets.
+              </p>
+
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Our commitment is to quality, transparency, reliable partnerships and customer satisfaction. We handle comprehensive quality inspection, international grade phytosanitary certifications, customized containerized packaging, and turnkey port-to-port logistics.
+              </p>
+
+              <div class="flex flex-wrap gap-4 items-center">
+                <button onclick="navigateTo('about')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-gold text-slate-900 font-bold text-xs hover:bg-brand-goldHover transition-colors shadow-sm">
+                  <span>Discover Our Story</span>
+                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
+
+                <div class="flex items-center space-x-3 text-xs text-slate-500 font-medium pl-2 border-l border-slate-300">
+                  <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-brand-gold"></i> APEDA Registered</span>
+                  <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-certificate text-brand-gold"></i> ISO Compliant Sourcing</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BANNER WITH GOLD SHIMMER & ICON (MATCHING SCREENSHOT) -->
+      <section class="bg-[#051123] text-white py-6 border-y border-brand-gold/30 relative overflow-hidden">
+        <!-- Background subtle world map graphic overlay -->
+        <div class="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 pointer-events-none hidden md:block">
+          <i class="fa-solid fa-globe text-[260px] text-brand-gold -mr-20 -mt-10"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+            
+            <div class="flex items-center space-x-5 text-center md:text-left">
+              <div class="hidden sm:flex w-14 h-14 rounded-xl bg-brand-gold/15 border border-brand-gold/40 items-center justify-center text-brand-gold shrink-0">
+                <i class="fa-solid fa-handshake-simple text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                  Looking for a Reliable Indian Export Partner?
+                </h3>
+                <p class="text-slate-300 text-xs sm:text-sm mt-0.5">
+                  Let's build a strong and lasting business relationship.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <button onclick="navigateTo('contact')" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-slate-900 font-bold text-xs tracking-wider uppercase hover:bg-brand-goldHover shadow-md transition-all whitespace-nowrap">
+                <span>Contact Sova Global Trade</span>
+                <i class="fa-solid fa-arrow-right text-[11px]"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- VIEW 2: ABOUT US PAGE                                         -->
+    <!-- ============================================================== -->
+    <div id="page-about" class="page-section">
+      
+      <!-- Subpage Hero Header -->
+      <div class="bg-brand-navy py-16 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+          <span class="text-xs font-bold tracking-widest uppercase text-brand-gold">WHO WE ARE</span>
+          <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-2 mb-4">About Sova Global Trade</h1>
+          <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
+            Your gateway to certified Indian merchandise, delivering excellence, authentic origin, and streamlined international logistics.
+          </p>
+        </div>
+      </div>
+
+      <!-- About In-Depth Content -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-navy mb-4">
+              Pioneering Indian Export with Integrity & Modern Standards
+            </h2>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Headquartered in India, <strong>Sova Global Trade</strong> was founded with a singular conviction: to bridge India's bountiful agricultural valleys, traditional artisan hubs, and advanced stainless steel manufacturing plants with leading importers worldwide.
+            </p>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Whether supplying premium long-grain 1121 Basmati Rice to Europe and the Middle East, authentic whole spices to the Americas, or handcrafted artisanal heritage pieces to luxury retailers, we ensure end-to-end quality assurance, laboratory testing, and seamless custom clearance.
+            </p>
+            
+            <div class="grid grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-xl bg-brand-goldLight border border-brand-goldBorder/80">
+                <div class="text-2xl font-bold text-brand-navy">100%</div>
+                <div class="text-xs text-slate-600 font-medium">Export Compliant Sourcing</div>
+              </div>
+              <div class="p-4 rounded-xl bg-brand-goldLight border border-brand-goldBorder/80">
+                <div class="text-2xl font-bold text-brand-navy">30+</div>
+                <div class="text-xs text-slate-600 font-medium">Product Lines & Specifications</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="grid grid-cols-2 gap-4">
+              <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Shipping logistics" class="rounded-2xl shadow-md h-48 w-full object-cover">
+              <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="Spices" class="rounded-2xl shadow-md h-48 w-full object-cover mt-6">
+              <img src="https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=600&q=80" alt="Indian Decor" class="rounded-2xl shadow-md h-48 w-full object-cover -mt-6">
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80" alt="Rice harvest" class="rounded-2xl shadow-md h-48 w-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission, Vision & Core Values -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover-lift">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/20 text-brand-navy flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Our Mission</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              To supply consistent, certified, and superior grade Indian agro and manufactured goods to international businesses while upholding punctuality and integrity.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover-lift">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/20 text-brand-navy flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Our Vision</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              To be the most reliable and forward-thinking Indian export merchant recognized worldwide for impeccable compliance, packaging excellence, and customer trust.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover-lift">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/20 text-brand-navy flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Our Values</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Uncompromising honesty, transparent trade contracts, ethical labor sourcing, sustainable agricultural practices, and win-win relationships.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- VIEW 3: PRODUCTS PAGE (FULL CATALOG WITH FILTERING)           -->
+    <!-- ============================================================== -->
+    <div id="page-products" class="page-section">
+      
+      <!-- Subpage Header -->
+      <div class="bg-brand-navy py-14 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+          <span class="text-xs font-bold tracking-widest uppercase text-brand-gold">PRODUCT CATALOGUE</span>
+          <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-2 mb-3">Our Export Range</h1>
+          <p class="text-slate-300 text-sm max-w-xl mx-auto">
+            Explore our curated export product divisions. All products comply with international phytosanitary, ISO, and country-specific port norms.
+          </p>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Filter Tabs -->
+        <div class="flex items-center justify-center flex-wrap gap-2 mb-10">
+          <button onclick="filterCatalog('all')" class="cat-filter-btn active px-4 py-2 rounded-lg text-xs font-semibold bg-brand-gold text-slate-900 transition-all" data-cat="all">All Categories</button>
+          <button onclick="filterCatalog('Rice')" class="cat-filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all" data-cat="Rice">Rice</button>
+          <button onclick="filterCatalog('Dal & Pulses')" class="cat-filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all" data-cat="Dal & Pulses">Dal & Pulses</button>
+          <button onclick="filterCatalog('Spices')" class="cat-filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all" data-cat="Spices">Spices & Food</button>
+          <button onclick="filterCatalog('Kitchenware')" class="cat-filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all" data-cat="Kitchenware">Kitchenware</button>
+          <button onclick="filterCatalog('Handicrafts')" class="cat-filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all" data-cat="Handicrafts">Handicrafts</button>
+          <button onclick="filterCatalog('Handloom')" class="cat-filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all" data-cat="Handloom">Handloom</button>
+        </div>
+
+        <!-- Products Catalog Grid -->
+        <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Product Item 1: Basmati Rice -->
+          <div class="catalog-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover-lift" data-category="Rice">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=700&q=80" alt="Basmati Rice" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-brand-gold text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Agro Export</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-1">Premium 1121 & Traditional Basmati Rice</h3>
+              <p class="text-xs text-slate-500 mb-3">Extra-long grain, aromatic, sortex cleaned, available in Sella, Golden, and Raw finishes.</p>
+              <div class="bg-slate-50 rounded-lg p-2.5 text-[11px] text-slate-600 mb-4 space-y-1">
+                <div><strong>Origin:</strong> Punjab & Haryana, India</div>
+                <div><strong>Packaging:</strong> 5kg, 10kg, 25kg, 50kg PP / Jute Bags</div>
+                <div><strong>Moisture:</strong> Under 12.5%</div>
+              </div>
+              <button onclick="openInquiryModal('Premium Basmati Rice 1121')" class="w-full py-2.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-semibold text-xs transition-colors flex items-center justify-center gap-2">
+                <span>Request Quotation</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Item 2: Non-Basmati Rice -->
+          <div class="catalog-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover-lift" data-category="Rice">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?auto=format&fit=crop&w=700&q=80" alt="Non-Basmati Rice" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-brand-gold text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Agro Export</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-1">Non-Basmati Rice (IR64, Sona Masoori)</h3>
+              <p class="text-xs text-slate-500 mb-3">5% broken parboiled & raw non-basmati rice suitable for commercial distribution and food processing.</p>
+              <div class="bg-slate-50 rounded-lg p-2.5 text-[11px] text-slate-600 mb-4 space-y-1">
+                <div><strong>Origin:</strong> Andhra Pradesh & Chhattisgarh</div>
+                <div><strong>Packaging:</strong> 25kg / 50kg Heavy Duty PP Bags</div>
+                <div><strong>Grade:</strong> Silky Sortex Cleaned</div>
+              </div>
+              <button onclick="openInquiryModal('Non-Basmati Rice (IR64 / Sona Masoori)')" class="w-full py-2.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-semibold text-xs transition-colors flex items-center justify-center gap-2">
+                <span>Request Quotation</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Item 3: Dal & Pulses -->
+          <div class="catalog-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover-lift" data-category="Dal & Pulses">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=700&q=80" alt="Pulses and Dal" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-brand-gold text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Pulses</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-1">Toor, Moong & Chana Dal (Lentils)</h3>
+              <p class="text-xs text-slate-500 mb-3">High protein Indian pulses, unpolished and sortex graded to adhere strictly to international import safety norms.</p>
+              <div class="bg-slate-50 rounded-lg p-2.5 text-[11px] text-slate-600 mb-4 space-y-1">
+                <div><strong>Varieties:</strong> Yellow Toor, Green Moong, Kabuli Chickpeas</div>
+                <div><strong>Purity:</strong> 99.5% Minimum</div>
+                <div><strong>Certifications:</strong> Phytosanitary, Lab Analysis</div>
+              </div>
+              <button onclick="openInquiryModal('Indian Dal & Pulses')" class="w-full py-2.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-semibold text-xs transition-colors flex items-center justify-center gap-2">
+                <span>Request Quotation</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Item 4: Spices & Condiments -->
+          <div class="catalog-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover-lift" data-category="Spices">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=700&q=80" alt="Whole and ground Indian spices" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-brand-gold text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Spices</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-1">Indian Whole Spices & Turmeric Finger</h3>
+              <p class="text-xs text-slate-500 mb-3">High-curcumin Salem turmeric, bold green cardamom, black pepper, cumin seeds, and red chilli pods.</p>
+              <div class="bg-slate-50 rounded-lg p-2.5 text-[11px] text-slate-600 mb-4 space-y-1">
+                <div><strong>Types:</strong> Turmeric, Cumin, Cardamom, Cloves, Chilli</div>
+                <div><strong>Curcumin (Turmeric):</strong> 3% - 5% Lab Tested</div>
+                <div><strong>Standard:</strong> ASTA / European Clean</div>
+              </div>
+              <button onclick="openInquiryModal('Whole Spices & Turmeric')" class="w-full py-2.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-semibold text-xs transition-colors flex items-center justify-center gap-2">
+                <span>Request Quotation</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Item 5: Kitchenware & Utensils -->
+          <div class="catalog-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover-lift" data-category="Kitchenware">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1584990347449-39bbf784a959?auto=format&fit=crop&w=700&q=80" alt="Stainless Steel Kitchenware" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-brand-gold text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Manufactured</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-1">Stainless Steel Cookware & Utensils</h3>
+              <p class="text-xs text-slate-500 mb-3">Food-grade SS 304 / 202 heavy-gauge utensils, casseroles, tableware, and commercial kitchen supplies.</p>
+              <div class="bg-slate-50 rounded-lg p-2.5 text-[11px] text-slate-600 mb-4 space-y-1">
+                <div><strong>Material:</strong> Food Grade Stainless Steel, Copper Base</div>
+                <div><strong>Finish:</strong> Mirror Polish / Satin Matt</div>
+                <div><strong>OEM/Custom Branding:</strong> Supported with laser etching</div>
+              </div>
+              <button onclick="openInquiryModal('Stainless Steel Kitchen Utensils')" class="w-full py-2.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-semibold text-xs transition-colors flex items-center justify-center gap-2">
+                <span>Request Quotation</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Item 6: Handicrafts & Brass Decor -->
+          <div class="catalog-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover-lift" data-category="Handicrafts">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=700&q=80" alt="Brass Lanterns and Elephants" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-brand-gold text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Handcrafted</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-1">Artisanal Brassware & Moradabad Lanterns</h3>
+              <p class="text-xs text-slate-500 mb-3">Intricately carved brass statues, lamps, decorative bowls, and antique lacquerware produced by generational masters.</p>
+              <div class="bg-slate-50 rounded-lg p-2.5 text-[11px] text-slate-600 mb-4 space-y-1">
+                <div><strong>Artisan Cluster:</strong> Moradabad & Jaipur</div>
+                <div><strong>Finish:</strong> Antique Patina, Polished Gold, Matte</div>
+                <div><strong>Packaging:</strong> Drop-test certified export cartons</div>
+              </div>
+              <button onclick="openInquiryModal('Handicrafts & Home Decor')" class="w-full py-2.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-semibold text-xs transition-colors flex items-center justify-center gap-2">
+                <span>Request Quotation</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Item 7: Handloom Textiles -->
+          <div class="catalog-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover-lift" data-category="Handloom">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?auto=format&fit=crop&w=700&q=80" alt="Handloom textiles" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-brand-gold text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Textiles</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-1">Handloom Cotton, Silk Fabrics & Linens</h3>
+              <p class="text-xs text-slate-500 mb-3">Pure khadi, woven bed covers, table runners, and organic cotton furnishings dyed using azo-free colors.</p>
+              <div class="bg-slate-50 rounded-lg p-2.5 text-[11px] text-slate-600 mb-4 space-y-1">
+                <div><strong>Material:</strong> 100% Pure Organic Cotton / Raw Silk</div>
+                <div><strong>Compliance:</strong> OEKO-TEX Standard Available</div>
+                <div><strong>Customization:</strong> Weaving patterns, sizes & palettes</div>
+              </div>
+              <button onclick="openInquiryModal('Handloom Products & Textiles')" class="w-full py-2.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-semibold text-xs transition-colors flex items-center justify-center gap-2">
+                <span>Request Quotation</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- VIEW 4: WHY CHOOSE US PAGE                                    -->
+    <!-- ============================================================== -->
+    <div id="page-why-us" class="page-section">
+      
+      <div class="bg-brand-navy py-14 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+          <span class="text-xs font-bold tracking-widest uppercase text-brand-gold">OUR COMPETITIVE ADVANTAGE</span>
+          <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-2 mb-3">Why Partner With Sova?</h1>
+          <p class="text-slate-300 text-sm max-w-2xl mx-auto">
+            From the fertile agricultural heartlands of India directly to your port of destination with precision, compliance, and guaranteed contractual dependability.
+          </p>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover-lift">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/15 text-brand-gold flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-stamp"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Stringent Quality Control</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Every shipment undergoes strict batch testing, moisture checks, and SGS / Bureau Veritas inspection upon client request before container sealing.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover-lift">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/15 text-brand-gold flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-file-shield"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Export Certifications</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Full documentation assistance including Certificate of Origin, Phytosanitary, Fumigation, Bill of Lading, and Country-specific commercial invoices.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover-lift">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/15 text-brand-gold flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Custom & Private Label Packaging</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Tailored retail packaging, BOPP bags, non-woven bags, master cartons, and barcoded pallets bearing your brand's international trademark.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover-lift">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/15 text-brand-gold flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-ship"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Logistics & Port Connectivity</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Proximity and tie-ups with leading Indian ports including Nhava Sheva (JNPT), Mundra, Chennai, and Kolkata for swift container departures.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover-lift">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/15 text-brand-gold flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Transparent Pricing</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Competitive FOB, CIF, or CFR contracts with fixed rate hedging and zero hidden charges, ensuring maximum profitability for our buyers.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover-lift">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/15 text-brand-gold flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Dedicated Account Managers</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Round-the-clock WhatsApp and email communication tracking shipment milestones from farm/factory floor through oceanic transit.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- 4 Steps Export Process -->
+        <div class="bg-brand-cream rounded-3xl p-8 sm:p-12 border border-brand-goldBorder/80">
+          <div class="text-center max-w-xl mx-auto mb-10">
+            <span class="text-xs font-bold tracking-widest text-brand-gold uppercase">OUR WORKFLOW</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-navy mt-1">Simple, Transparent Export Process</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-gold font-bold flex items-center justify-center mx-auto mb-3 shadow-md">1</div>
+              <h4 class="font-bold text-sm text-brand-navy mb-1">Inquiry & Specifications</h4>
+              <p class="text-xs text-slate-600">You share required grades, volume, packaging specifications, and target port.</p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-gold font-bold flex items-center justify-center mx-auto mb-3 shadow-md">2</div>
+              <h4 class="font-bold text-sm text-brand-navy mb-1">Sampling & Proforma</h4>
+              <p class="text-xs text-slate-600">We dispatch verified physical samples and issue transparent Proforma Invoice.</p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-gold font-bold flex items-center justify-center mx-auto mb-3 shadow-md">3</div>
+              <h4 class="font-bold text-sm text-brand-navy mb-1">Production & Inspection</h4>
+              <p class="text-xs text-slate-600">Goods are packaged, sortexed, and verified by certified laboratory inspectors.</p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-gold font-bold flex items-center justify-center mx-auto mb-3 shadow-md">4</div>
+              <h4 class="font-bold text-sm text-brand-navy mb-1">Port Dispatch & Tracking</h4>
+              <p class="text-xs text-slate-600">Containers are loaded onto global vessels with prompt B/L dispatch and real-time updates.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- VIEW 5: GALLERY PAGE                                          -->
+    <!-- ============================================================== -->
+    <div id="page-gallery" class="page-section">
+      
+      <div class="bg-brand-navy py-14 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+          <span class="text-xs font-bold tracking-widest uppercase text-brand-gold">VISUAL ARCHIVE</span>
+          <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-2 mb-3">Product & Packaging Gallery</h1>
+          <p class="text-slate-300 text-sm max-w-xl mx-auto">
+            A glimpse into our quality commodities, warehouse logistics, packaging standards, and artisan craftsmanship.
+          </p>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          
+          <div class="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80" alt="Rice Processing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end">
+              <span class="text-xs text-white font-medium">Export Grade Rice Sortex Facility</span>
+            </div>
+          </div>
+
+          <div class="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="Whole Spices" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end">
+              <span class="text-xs text-white font-medium">Aromatic Indian Whole Spices</span>
+            </div>
+          </div>
+
+          <div class="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Container Cargo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end">
+              <span class="text-xs text-white font-medium">Port Logistics & Container Staging</span>
+            </div>
+          </div>
+
+          <div class="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=600&q=80" alt="Indian Handicrafts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end">
+              <span class="text-xs text-white font-medium">Brassware & Handcrafted Artifacts</span>
+            </div>
+          </div>
+
+          <div class="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Pulses & Lentils" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end">
+              <span class="text-xs text-white font-medium">Pulses, Lentils & Grain Sorting</span>
+            </div>
+          </div>
+
+          <div class="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1584990347449-39bbf784a959?auto=format&fit=crop&w=600&q=80" alt="Stainless Steelware" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end">
+              <span class="text-xs text-white font-medium">High Polish Utensils & Kitchenware</span>
+            </div>
+          </div>
+
+          <div class="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?auto=format&fit=crop&w=600&q=80" alt="Handloom textiles" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end">
+              <span class="text-xs text-white font-medium">Loom Weaving & Organic Textiles</span>
+            </div>
+          </div>
+
+          <div class="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-slate-100">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=600&q=80" alt="Heritage India" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end">
+              <span class="text-xs text-white font-medium">Authentic Indian Origin Guarantee</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- VIEW 6: CONTACT US PAGE                                       -->
+    <!-- ============================================================== -->
+    <div id="page-contact" class="page-section">
+      
+      <div class="bg-brand-navy py-14 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+          <span class="text-xs font-bold tracking-widest uppercase text-brand-gold">LET'S CONNECT</span>
+          <h1 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-2 mb-3">Contact Sova Global Trade</h1>
+          <p class="text-slate-300 text-sm max-w-xl mx-auto">
+            Ready to import from India? Send us your requirements for quick FOB/CIF price quotes and sample shipments.
+          </p>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Contact Form (7 cols) -->
+          <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <h2 class="font-serif text-2xl font-bold text-brand-navy mb-2">Request Quotation & Inquiries</h2>
+            <p class="text-xs text-slate-500 mb-6">Fill in the product details and our trade team will respond within 12 business hours.</p>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name *</label>
+                  <input type="text" required placeholder="e.g. Johnathan Miller" class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Business Email *</label>
+                  <input type="email" required placeholder="name@company.com" class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Destination Country *</label>
+                  <input type="text" required placeholder="e.g. United Arab Emirates, USA, Germany" class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Phone / WhatsApp Number *</label>
+                  <input type="tel" required placeholder="+1 234 567 8900" class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Product Category of Interest *</label>
+                <select id="contactProductSelect" class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-gold bg-white">
+                  <option value="Rice (Basmati & Non-Basmati)">Rice (Basmati & Non-Basmati)</option>
+                  <option value="Dal & Pulses">Dal & Pulses</option>
+                  <option value="Spices & Food Products">Spices & Food Products</option>
+                  <option value="Kitchen Products & Utensils">Kitchen Products & Utensils</option>
+                  <option value="Handicrafts & Home Decor">Handicrafts & Home Decor</option>
+                  <option value="Handloom Products">Handloom Products</option>
+                  <option value="Multiple / General Inquiry">Multiple / General Trade Inquiry</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Quantity & Specification Details *</label>
+                <textarea rows="4" required placeholder="Please state expected quantity (e.g. 1x 20ft FCL), packaging preferences (e.g. 25kg PP bags), destination port name, and any laboratory testing specs..." class="w-full text-xs px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-gold"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3 rounded-lg bg-brand-gold text-slate-900 font-bold text-xs uppercase tracking-wider hover:bg-brand-goldHover transition-colors shadow">
+                Submit Export Inquiry
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Sidebar Details (5 cols) -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <div class="bg-brand-navy text-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-800">
+              <h3 class="font-serif text-xl font-bold mb-4 text-brand-gold">Trade & Export Office</h3>
+              
+              <div class="space-y-4 text-xs">
+                <div class="flex items-start space-x-3">
+                  <i class="fa-solid fa-location-dot text-brand-gold text-sm mt-0.5"></i>
+                  <div>
+                    <strong class="text-white block">Corporate Headquarters</strong>
+                    <span class="text-slate-300 leading-relaxed">Sova Global Trade Export House, New Delhi / Mumbai Port Logistics Corridor, India</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3">
+                  <i class="fa-regular fa-envelope text-brand-gold text-sm mt-0.5"></i>
+                  <div>
+                    <strong class="text-white block">Email Enquiries</strong>
+                    <a href="mailto:sales@sovaglobaltrade.com" class="text-slate-300 hover:text-brand-gold transition-colors">sales@sovaglobaltrade.com</a>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3">
+                  <i class="fa-solid fa-phone text-brand-gold text-sm mt-0.5"></i>
+                  <div>
+                    <strong class="text-white block">International Trade Desk</strong>
+                    <span class="text-slate-300">+91 (Export Desk - WhatsApp Available)</span>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3">
+                  <i class="fa-solid fa-clock text-brand-gold text-sm mt-0.5"></i>
+                  <div>
+                    <strong class="text-white block">Working Hours</strong>
+                    <span class="text-slate-300">Mon - Sat: 9:00 AM - 7:00 PM IST (GMT +5:30)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-5 border-t border-slate-800">
+                <div class="text-[11px] font-semibold text-brand-gold mb-2 uppercase tracking-wider">Accepted Port Incoterms:</div>
+                <div class="flex flex-wrap gap-2 text-[10px] text-slate-300">
+                  <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">FOB</span>
+                  <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">CIF</span>
+                  <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">CFR</span>
+                  <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">EXW</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trust highlights box -->
+            <div class="bg-brand-goldLight border border-brand-goldBorder rounded-2xl p-6 text-brand-navy">
+              <h4 class="font-bold text-sm mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-brand-gold"></i>
+                Buyer Protection Guarantee
+              </h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                All consignments are verified through governmental statutory bodies, APEDA, Spice Board of India, and port authorities prior to dispatch.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER (MATCHING DESIGN) ================= -->
+  <footer class="bg-brand-dark text-slate-300 border-t border-slate-800 text-xs">
+    
+    <!-- Top Footer Bar: Logo & Slogan matching screenshot bottom bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 border-b border-slate-800/80">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <!-- Left: Logo & Slogan with divider -->
+        <div class="flex flex-col sm:flex-row items-center sm:space-x-6 text-center sm:text-left gap-2 sm:gap-0">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-8 h-8 rounded-full bg-slate-900 border border-brand-gold/60 flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-gold" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M50 8C26.8 8 8 26.8 8 50c0 9.8 3.4 18.8 9.1 26L31 62c-2.5-3.6-4-8-4-12.8 0-12.7 10.3-23 23-23s23 10.3 23 23c0 7.2-3.3 13.6-8.5 17.8L76 80.5C85.8 72.8 92 62.1 92 50 92 26.8 73.2 8 50 8z" fill="#D4A359"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-cinzel text-base font-bold text-white tracking-widest leading-none">SOVA</span>
+              <span class="text-[7.5px] font-semibold text-brand-gold tracking-[0.2em] uppercase">GLOBAL TRADE</span>
+            </div>
+          </div>
+
+          <div class="hidden sm:block h-6 w-[1px] bg-slate-700"></div>
+
+          <div class="text-xs text-brand-gold font-medium">
+            Connecting Indian Products to Global Markets.
+          </div>
+        </div>
+
+        <!-- Middle / Right: Copyright & Socials -->
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <span class="text-slate-400 text-[11px]">
+            &copy; 2026 Sova Global Trade. All Rights Reserved.
+          </span>
+          <div class="flex items-center space-x-3 text-slate-400">
+            <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Quick Links & SEO Sitemap Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+      <div class="flex flex-wrap items-center justify-center md:justify-between gap-3 text-[11px] text-slate-400">
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <button onclick="navigateTo('home')" class="hover:text-brand-gold">Home</button>
+          <span>•</span>
+          <button onclick="navigateTo('about')" class="hover:text-brand-gold">About Us</button>
+          <span>•</span>
+          <button onclick="navigateTo('products')" class="hover:text-brand-gold">Export Range</button>
+          <span>•</span>
+          <button onclick="navigateTo('why-us')" class="hover:text-brand-gold">Why Choose Us</button>
+          <span>•</span>
+          <button onclick="navigateTo('gallery')" class="hover:text-brand-gold">Gallery</button>
+          <span>•</span>
+          <button onclick="navigateTo('contact')" class="hover:text-brand-gold">Inquire Now</button>
+        </div>
+        <div class="text-slate-500 text-[10px]">
+          Export House • Rice, Spices, Pulses, Utensils, Handicrafts & Handloom
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= INQUIRY MODAL POPUP ================= -->
+  <div id="inquiryModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-brand-goldBorder transform scale-95 transition-transform duration-200" id="inquiryModalCard">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+        <div>
+          <span class="text-[10px] font-bold text-brand-gold uppercase tracking-wider">DIRECT TRADE INQUIRY</span>
+          <h3 class="font-serif text-lg font-bold text-brand-navy" id="modalProductTitle">Enquire About Product</h3>
+        </div>
+        <button onclick="closeInquiryModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center text-sm transition-colors">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleModalSubmit(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-700 mb-1">Target Product</label>
+          <input type="text" id="modalProductInput" readonly class="w-full text-xs px-3 py-2 rounded-lg bg-slate-100 border border-slate-200 text-slate-800 font-medium">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-700 mb-1">Your Name *</label>
+            <input type="text" required placeholder="Full Name" class="w-full text-xs px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-1 focus:ring-brand-gold">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-700 mb-1">Company Email *</label>
+            <input type="email" required placeholder="email@company.com" class="w-full text-xs px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-1 focus:ring-brand-gold">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-700 mb-1">Destination Country / Port *</label>
+            <input type="text" required placeholder="e.g. Dubai / Jebel Ali" class="w-full text-xs px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-1 focus:ring-brand-gold">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-700 mb-1">WhatsApp / Phone *</label>
+            <input type="tel" required placeholder="+Country Code & Number" class="w-full text-xs px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-1 focus:ring-brand-gold">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-700 mb-1">Estimated Quantity & Packing Requirement</label>
+          <textarea rows="3" placeholder="e.g. 50 Metric Tons, 25kg PP bags, CIF Port..." class="w-full text-xs px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-1 focus:ring-brand-gold"></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button type="button" onclick="closeInquiryModal()" class="px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors">
+            Cancel
+          </button>
+          <button type="submit" class="px-5 py-2 rounded-lg bg-brand-gold text-slate-900 font-bold text-xs uppercase tracking-wider hover:bg-brand-goldHover transition-colors shadow">
+            Send Trade Inquiry
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= SUCCESS TOAST NOTIFICATION ================= -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white border-l-4 border-brand-gold p-4 rounded-xl shadow-2xl flex items-center space-x-3 transform translate-y-24 opacity-0 transition-all duration-300">
+    <div class="w-8 h-8 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <div>
+      <div class="text-xs font-bold text-white" id="toastTitle">Inquiry Sent Successfully!</div>
+      <div class="text-[11px] text-slate-300" id="toastMsg">Our export desk will reach out with the Proforma & specifications.</div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT CONTROLLERS ================= -->
+  <script>
+    // Navigation Router
+    function navigateTo(pageId) {
+      // Hide all page sections
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(sec => {
+        sec.classList.remove('active');
+      });
+
+      // Show targeted page
+      const target = document.getElementById('page-' + pageId);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update navbar indicators
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        const indicator = link.querySelector('.nav-indicator');
+        if (indicator) indicator.classList.add('hidden');
+      });
+
+      const activeLink = document.getElementById('nav-' + pageId);
+      if (activeLink) {
+        const indicator = activeLink.querySelector('.nav-indicator');
+        if (indicator) indicator.classList.remove('hidden');
+      }
+    }
+
+    // Filter and navigate directly from navbar dropdown
+    function filterAndNavigate(category) {
+      navigateTo('products');
+      setTimeout(() => {
+        filterCatalog(category);
+      }, 50);
+    }
+
+    // Product Category Filter Function
+    function filterCatalog(category) {
+      const items = document.querySelectorAll('.catalog-item');
+      const buttons = document.querySelectorAll('.cat-filter-btn');
+
+      // Update button style
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-cat') === category) {
+          btn.classList.add('bg-brand-gold', 'text-slate-900');
+          btn.classList.remove('bg-slate-100', 'text-slate-700');
+        } else {
+          btn.classList.remove('bg-brand-gold', 'text-slate-900');
+          btn.classList.add('bg-slate-100', 'text-slate-700');
+        }
+      });
+
+      // Filter catalog cards
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+      }
+    }
+
+    // Modal Control
+    function openInquiryModal(productName) {
+      const modal = document.getElementById('inquiryModal');
+      const modalInput = document.getElementById('modalProductInput');
+      const modalTitle = document.getElementById('modalProductTitle');
+      const modalCard = document.getElementById('inquiryModalCard');
+
+      modalInput.value = productName || 'General Export Inquiry';
+      modalTitle.innerText = productName ? 'Enquire: ' + productName : 'Request Export Quotation';
+
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modalCard.classList.remove('scale-95');
+        modalCard.classList.add('scale-100');
+      }, 10);
+    }
+
+    function closeInquiryModal() {
+      const modal = document.getElementById('inquiryModal');
+      const modalCard = document.getElementById('inquiryModalCard');
+
+      modal.classList.add('opacity-0');
+      modalCard.classList.add('scale-95');
+      modalCard.classList.remove('scale-100');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 200);
+    }
+
+    // Modal Submission
+    function handleModalSubmit(event) {
+      event.preventDefault();
+      closeInquiryModal();
+      showToast('Inquiry Received!', 'Thank you! Our international trade specialist will contact you shortly.');
+      event.target.reset();
+    }
+
+    // Main Contact Form Submission
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      showToast('Export Inquiry Submitted!', 'We have logged your quotation request. Check your email for confirmation.');
+      event.target.reset();
+    }
+
+    // Toast Notification Display
+    function showToast(title, message) {
+      const toast = document.getElementById('toastNotification');
+      const toastTitle = document.getElementById('toastTitle');
+      const toastMsg = document.getElementById('toastMsg');
+
+      toastTitle.innerText = title;
+      toastMsg.innerText = message;
+
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 4000);
+    }
+
+    // Close modal on click outside
+    window.addEventListener('click', function(e) {
+      const modal = document.getElementById('inquiryModal');
+      if (e.target === modal) {
+        closeInquiryModal();
+      }
+    });
+  </script>
+</body>
 </html>
